@@ -12,6 +12,9 @@ function HomePage() {
                     <Link href='posts/post-do-link'>Ir para post sobre Next Js</Link>
                 </li>
             </ul>
+            <div>
+                <img src='/images/felix3.png' />
+            </div>
         </div>
     )
 }
