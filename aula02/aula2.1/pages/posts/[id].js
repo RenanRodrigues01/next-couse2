@@ -33,7 +33,7 @@ export async function getStaticProps(context) {
     return false;
   })
 
-  console.log(post);
+  //console.log(post);
 
   return {
     props: {
