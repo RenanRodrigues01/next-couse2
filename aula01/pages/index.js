@@ -8,6 +8,9 @@ function HomePage() {
                 <li>
                     <Link href='/sobre'> Ir para sobre nós</Link>
                 </li>
+                <li>
+                    <Link href='posts/post-do-link'>Ir para post sobre Next Js</Link>
+                </li>
             </ul>
         </div>
     )
