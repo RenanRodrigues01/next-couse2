@@ -1,37 +1,41 @@
 import NextLink from 'next/link';
 import { Box, Text } from '@skynexui/components';
 import { useRouter } from 'next/router';
-import dados from '../../dados.json';
+//import dados from '../../dados.json';
 
 // dica dos paths estáticos
 export async function getStaticPaths() {
-  // const paths = [
-  //   { params: { id: '1' } },
-  //   { params: { id: '2' } },
-  //   { params: { id: '3' } }
-  // ]
-  const paths = dados.posts.map((postAtual) => {
+  // const paths = [{ params: { id: '1' } } ]
+
+  /*const dadosDaApi = await fetch('https://fakeapi-omariosouto.vercel.app/api/posts')
+    .then( (res) => res.json())
+  
+  const paths = dadosDaApi.posts.map((postAtual) => {
     return { params: { id: `${postAtual.id}` } };
-  })
-  console.log('dados:', dados);
-  console.log('paths:', paths);
+  })*/
+ 
 
   return {
-    paths: paths,
-    fallback: false // false or 'blocking'
+    paths: [], 
+    fallback: 'blocking' // false or 'blocking'
   };
 }
 
 export async function getStaticProps(context) {
   //console.log('Contexto', context.params.id);
+  console.log('Gerou!')
   const id = context.params.id;
 
-  const post = dados.posts.find((currentPost) => {
+  const dadosDaApi = await fetch(`https://fakeapi-omariosouto.vercel.app/api/posts/${id}`)
+  .then( (res) => res.json())
+
+  const post = dadosDaApi
+  /*const post = dados.posts.find((currentPost) => {
     if(currentPost.id === id) {
       return true;
     }
-    return false;
-  })
+    return false; 
+  })*/
 
   //console.log(post);
 
@@ -56,7 +60,7 @@ export default function PostByIdScreen(props) {
   };
 
   if(router.isFallback) {
-    return 'Essa página não existe!';
+    return 'Essa página está sendo carregada!';
   }
 
   return (
