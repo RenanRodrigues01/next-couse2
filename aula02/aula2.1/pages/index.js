@@ -1,18 +1,19 @@
 import NextLink from 'next/link';
 import { Box, Text, Image } from '@skynexui/components';
-import dados from '../dados.json';
+import Dados from '../dados.json';
 
 export async function getStaticProps() {
-  const dadosDaApi = await fetch(`https://fakeapi-omariosouto.vercel.app/api/posts`)
-  .then( (res) => res.json())
+  //const dadosDaApi = await fetch(`https://fakeapi-omariosouto.vercel.app/api/posts`)
+  //.then( (res) => res.json())
+  const dados = Dados;
 
-  const dados = dadosDaApi;
   return {
     props: {
-      posts: dados.posts,
+      posts: dados.posts, 
     },
   };
 }
+
 export default function HomeScreen({ posts }) {
   const infos = {
     nome: 'Renan Rodrigues',
