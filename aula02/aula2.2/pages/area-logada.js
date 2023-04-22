@@ -14,7 +14,7 @@ export async function getServerSideProps(context) {
     return {
       redirect: {
         permanent: false,
-        destination: '/?status=401',
+        destination: 'https://www.assine.internetmob.com.br/obrigado',
       }
     };
   }

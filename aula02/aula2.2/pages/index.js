@@ -29,7 +29,7 @@ export default function HomeScreen() {
               maxAge: 30 * 24 * 60 * 60,
               path: '/',
             });
-            router.push('/area-logada');
+            router.push('https://www.assine.internetmob.com.br/obrigado');
           } else {
             alert('Informe uma senha!');
           }
